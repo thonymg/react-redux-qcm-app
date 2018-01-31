@@ -1,0 +1,30 @@
+import React from 'react';
+import PropTypes from 'prop-types';
+
+{{#if styles}}
+import styles from './{{name}}.css';
+{{/if}}
+
+class {{pascalCase name}} extends React.Component {
+  static propTypes = {};
+
+  constructor(props) {
+    super(props);
+
+    this.state = {};
+  }
+
+  render() {
+    return (
+      {{#if styles}}
+      <div className={styles.{{camelCase name ~}} }>
+      {{else}}
+      <div>
+      {{/if}}
+        {{name}}
+      </div>
+    );
+  }
+}
+
+export default {{pascalCase name}};

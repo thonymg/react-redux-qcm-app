@@ -1,0 +1,33 @@
+/* eslint-disable */
+import deepFreeze from 'deep-freeze';
+
+import { {{camelCase name}}Reducer, INITIAL_STATE } from './{{name}}_reducer';
+
+describe('{{camelCase name}}Reducer', () => {
+  it('returns initial state', () => {
+    const action = {
+      type: '@@INIT',
+    };
+
+    deepFreeze(action);
+
+    const nextState = {{camelCase name}}Reducer(undefined, action);
+
+    expect(nextState).toEqual(INITIAL_STATE);
+  });
+
+  it('returns existing state for unknown action', () => {
+    const action = {
+      type: '@@UNKNOWN',
+    };
+
+    const prevState = INITIAL_STATE;
+
+    deepFreeze(action);
+    deepFreeze(prevState);
+
+    const nextState = {{camelCase name}}Reducer(prevState, action);
+
+    expect(nextState).toBe(prevState);
+  });
+});

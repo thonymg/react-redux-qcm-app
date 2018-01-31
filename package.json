@@ -1,0 +1,26 @@
+{
+  "name": "iwd-chall",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "concurrently": "^3.5.1",
+    "plop": "^1.9.1",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-redux": "^5.0.6",
+    "react-scripts": "1.1.0",
+    "redux": "^3.7.2",
+    "redux-thunk": "^2.2.0"
+  },
+  "scripts": {
+    "build": "react-scripts build",
+    "gen": "plop --plopfile ./generators/plopfile.js",
+    "start": "npm run reactStart",
+    "reactStart": "react-scripts start",
+    "fakeAPI": "json-server --watch db.json -p 4000",
+    "test": "react-scripts test --env=jsdom --no-watchAll --forceExit",
+    "version:major": "npm version major",
+    "version:minor": "npm version minor",
+    "version:patch": "npm version patch"
+  }
+}
