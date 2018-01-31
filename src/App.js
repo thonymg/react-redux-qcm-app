@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import Header from './components/containers/header';
 import QuestionForm from './components/containers/questionForm';
+import QuestionList from './components/containers/questionList';
 
 const App = () => {
   return (
@@ -11,6 +12,7 @@ const App = () => {
           <div className="container">
             <Header />
             <QuestionForm />
+            <QuestionList />
           </div>
         </div>
       </div>

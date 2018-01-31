@@ -1,7 +1,7 @@
 import * as a from './actions_types.js';
 
 export const showQuestionForm = () => {
-  return { type: a.SHOW_QUESTION_FORM };
+  return { type: a.TOGGLE_QUESTION_FORM };
 };
 
 export const getLastQuestion = () => {

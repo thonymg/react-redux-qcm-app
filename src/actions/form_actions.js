@@ -20,18 +20,20 @@ export const createOneQuestion = data => {
       {
         response: data.badResponse1, 
         isTrue: false,
+        picked: 0,
         lastPicked: new Date
       }, 
       {
         response: data.badResponse2, 
         isTrue: false,
+        picked: 0,
         lastPicked: new Date
       }, 
     ]
   }
   return {
     type: a.CREATE_ONE_QUESTION,
-    formatedData
+    payload: formatedData
   };
 };
 
