@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Header = ({onCreateQuestionClick, onBestQuestionClick, onLastQuestionClick}) => (
+const Header = ({onShowQuestionClick, onBestQuestionClick, onLastQuestionClick}) => (
   <div>
     <ul className="tab">
       <li className="tab-item active">
@@ -9,7 +9,7 @@ const Header = ({onCreateQuestionClick, onBestQuestionClick, onLastQuestionClick
           href=""
           onClick={e => {
             e.preventDefault();
-            onCreateQuestionClick();
+            onShowQuestionClick();
           }}>
           (<i className="icon icon-plus" />) Add
         </a>

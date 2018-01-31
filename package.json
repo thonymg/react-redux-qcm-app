@@ -1,6 +1,6 @@
 {
   "name": "iwd-chall",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "dependencies": {
     "concurrently": "^3.5.1",

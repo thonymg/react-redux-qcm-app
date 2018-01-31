@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import * as headerAction from '../../../actions/header_action'
+import * as headerAction from '../../../actions/header_actions'
 
 import Header from '../../ui/header';
 
@@ -7,8 +7,8 @@ const mapStateToProps = () => ({});
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    onCreateQuestionClick : () => {
-      dispatch(headerAction.createOneQuestion())
+    onShowQuestionClick : () => {
+      dispatch(headerAction.showQuestionForm())
     },
     onBestQuestionClick : () => {
       dispatch(headerAction.getBestQuestion() )
