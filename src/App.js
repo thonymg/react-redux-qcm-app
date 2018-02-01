@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import Header from './components/containers/header';
 import QuestionForm from './components/containers/questionForm';
 import QuestionList from './components/containers/questionList';
+import ResponseField from './components/containers/responseFields';
 
 const App = () => {
   return (
@@ -11,6 +12,7 @@ const App = () => {
         <div className="column col-12">
           <div className="container">
             <Header />
+            <ResponseField />
             <QuestionForm />
             <QuestionList />
           </div>

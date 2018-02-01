@@ -33,10 +33,10 @@ const QuestionList = ({ questions, onStatClick, onRespondClick }) => {
             {_.map(questions, question => {
               return (
                 <Question
-                  key={`${question.ID}`}
+                  key={question.ID}
                   question={question}
-                  onRespondClick={() => onRespondClick()}
-                  onStatClick={() => onStatClick()}
+                  onRespondClick={() => onRespondClick(question.ID)}
+                  onStatClick={() => onStatClick(question.ID)}
                 />
               );
             })}

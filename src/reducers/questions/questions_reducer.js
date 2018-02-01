@@ -1,8 +1,9 @@
 import * as a from '../../actions/actions_types.js';
+import _ from 'lodash';
 
 const INITIAL_STATE = [
   {
-    ID: 885562,
+    ID: '885562',
     question: 'data.question',
     responses: [
       {
@@ -26,7 +27,7 @@ const INITIAL_STATE = [
     ],
   },
   {
-    ID: 5562,
+    ID: '5562',
     question: 'data.question',
     responses: [
       {
@@ -53,6 +54,7 @@ const INITIAL_STATE = [
 
 const questionReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
+
     case a.CREATE_ONE_QUESTION:
       return [...state, action.payload];
 
@@ -61,6 +63,11 @@ const questionReducer = (state = INITIAL_STATE, action) => {
 
     case a.GET_BEST_QUESTION:
       return (state = 'GET_BEST_QUESTION');
+
+    case a.PICK_ONE_RESPONSE:
+        const res = _.find(state, {'ID' : '885562'})
+        console.log(res, state, 'reducer')
+      return Object.assign({}, state, res);
 
     default:
       return state;

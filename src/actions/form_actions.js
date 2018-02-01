@@ -7,7 +7,7 @@ const createQuestionCode = () => {
 
 export const createOneQuestion = data => {
   const formatedData = {
-    ID: uid(),
+    ID: `${uid()}`,
     question: data.question,
     responses: [
       {
@@ -15,18 +15,21 @@ export const createOneQuestion = data => {
         isTrue: true,
         picked: 0,
         lastPicked: new Date(),
+        index: 0,
       },
       {
         response: data.badResponse1,
         isTrue: false,
         picked: 0,
         lastPicked: new Date(),
+        index: 1,
       },
       {
         response: data.badResponse2,
         isTrue: false,
         picked: 0,
         lastPicked: new Date(),
+        index: 2,
       },
     ],
   };
@@ -36,7 +39,21 @@ export const createOneQuestion = data => {
   };
 };
 
-export const pickOneResponse = () => {};
+export const pickOneResponse = data => {
+  const res = {
+    ID: data.questionID, 
+    responses : [
+      {
+        picked: +1,
+        lastPicked: new Date(),
+      },
+    ]
+  }
+  return {
+    type: a.PICK_ONE_RESPONSE,
+    payload: res,
+  };
+};
 
 // export const getLastQuestion = () => {
 //   return { type: a.GET_LAST_QUESTION };
