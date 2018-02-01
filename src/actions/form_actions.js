@@ -1,4 +1,6 @@
 import * as a from './actions_types.js';
+import Axios from 'axios';
+const apiUrl = 'http://localhost:4440/questions';
 
 const uid = () => Date.now();
 const createQuestionCode = () => {
@@ -55,6 +57,16 @@ export const pickOneResponse = data => {
   };
 };
 
+
+// thunks
+export const createQuestion = (question) => {
+  return dispatch => {
+    return Axios.post(apiUrl, question)
+    .then(res => {
+      dispatch(createOneQuestion(res.data))
+    })
+  }
+}
 // export const getLastQuestion = () => {
 //   return { type: a.GET_LAST_QUESTION };
 // };

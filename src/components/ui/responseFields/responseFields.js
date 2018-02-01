@@ -12,7 +12,6 @@ const submitedData = (ev, questionID) => {
 };
 
 const ResponseFields = ({ question, handleSubmit }) => {
-  console.log(question, handleSubmit, 'question, handleSubmit');
   return (
     <div>
       <div className="columns">

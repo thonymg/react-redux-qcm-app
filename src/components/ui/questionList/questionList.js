@@ -1,52 +1,38 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import _ from 'lodash'
+import _ from 'lodash';
 
 import Question from '../question';
 import question from '../question/question';
-/**
- * 
- * 
- * @param {any} { questions, onStatClick, onRespondClick } 
- * @returns Question list 
- * ! some strange things apears when i use native map 
- */
-const QuestionList = ({ questions, onStatClick, onRespondClick }) => {
 
-    
-  // const ListedQuestion = questions.map(question => (
-  //   <Question
-  //     key={question.ID}
-  //     question={question}
-  //     onRespondClick={() => RespondClick()}
-  //     onStatClick={() => StatClick()}
-  //   />
-  // ));
 
-  return (
-    <div>
-      <div className="container">
-        <div className="column col-12">
-          <button onClick={() => onRespondClick()}>click</button>
-
-          <ul>
-            {_.map(questions, question => {
-              return (
-                <Question
-                  key={question.ID}
-                  question={question}
-                  onRespondClick={() => onRespondClick(question.ID)}
-                  onStatClick={() => onStatClick(question.ID)}
-                />
-              );
-            })}
-          </ul>
+export default class QuestionList extends React.Component {
+  componentDidMount() {
+    this.props.fetchData();
+    }
+  render() {
+    return (
+      <div>
+        <button onClick={e => this.props.fetchData()}>Fetch</button>
+        <div className="container">
+          <div className="column col-12">
+            <ul>
+              {_.map(this.props.questions, question => {
+                return (
+                  <Question
+                    key={question.ID}
+                    question={question}
+                    onRespondClick={() =>
+                      this.props.onRespondClick(question.ID)
+                    }
+                    onStatClick={() => this.props.onStatClick(question.ID)}
+                  />
+                );
+              })}
+            </ul>
+          </div>
         </div>
       </div>
-    </div>
-  );
-};
-
-QuestionList.propTypes = {};
-
-export default QuestionList;
+    );
+  }
+}

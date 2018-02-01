@@ -52,9 +52,8 @@ const INITIAL_STATE = [
   },
 ];
 
-const questionReducer = (state = INITIAL_STATE, action) => {
+export const questionsReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-
     case a.CREATE_ONE_QUESTION:
       return [...state, action.payload];
 
@@ -65,8 +64,8 @@ const questionReducer = (state = INITIAL_STATE, action) => {
       return (state = 'GET_BEST_QUESTION');
 
     case a.PICK_ONE_RESPONSE:
-        const res = _.find(state, {'ID' : '885562'})
-        console.log(res, state, 'reducer')
+      const res = _.find(state, { ID: '885562' });
+      console.log(res, state, 'reducer');
       return Object.assign({}, state, res);
 
     default:
@@ -74,4 +73,16 @@ const questionReducer = (state = INITIAL_STATE, action) => {
   }
 };
 
-export default questionReducer;
+export const fetchingDataReducer = (state={}, action) => {
+  switch (action.type) {
+    case a.FETCH_ALL_QUESTION_ERROR:
+      return action.hasHerror;
+    case a.FETCH_ALL_QUESTION_LOADING:
+      return action.isLoading;
+    case a.FETCH_ALL_QUESTION_SUCCESS:
+      return action.payload;
+
+    default:
+      return state;
+  }
+};
