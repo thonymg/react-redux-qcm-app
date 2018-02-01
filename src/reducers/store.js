@@ -3,12 +3,12 @@ import { createStore, combineReducers, compose, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 
-import questions from './questions/questions_reducer'
+import questions from './questions/questions_reducer';
+import ui from './ui/ui_reducer';
 
 const reducers = combineReducers({
   questions,
-//   answers,
-//   form: formReducer,
+  ui,
 });
 
 const store = createStore(

@@ -2,40 +2,41 @@ import * as a from './actions_types.js';
 
 const uid = () => Date.now();
 const createQuestionCode = () => {
-
-  // return code; 
+  // return code;
 };
 
 export const createOneQuestion = data => {
   const formatedData = {
     ID: uid(),
-    question: data.question, 
+    question: data.question,
     responses: [
       {
-        response: data.goodResponse, 
+        response: data.goodResponse,
         isTrue: true,
-        picked: 0, 
-        lastPicked: new Date
-      }, 
+        picked: 0,
+        lastPicked: new Date(),
+      },
       {
-        response: data.badResponse1, 
+        response: data.badResponse1,
         isTrue: false,
         picked: 0,
-        lastPicked: new Date
-      }, 
+        lastPicked: new Date(),
+      },
       {
-        response: data.badResponse2, 
+        response: data.badResponse2,
         isTrue: false,
         picked: 0,
-        lastPicked: new Date
-      }, 
-    ]
-  }
+        lastPicked: new Date(),
+      },
+    ],
+  };
   return {
     type: a.CREATE_ONE_QUESTION,
-    payload: formatedData
+    payload: formatedData,
   };
 };
+
+export const pickOneResponse = () => {};
 
 // export const getLastQuestion = () => {
 //   return { type: a.GET_LAST_QUESTION };

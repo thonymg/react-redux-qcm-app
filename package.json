@@ -3,7 +3,9 @@
   "version": "0.1.1",
   "private": true,
   "dependencies": {
-    "concurrently": "^3.5.1",
+    "axios": "^0.17.1",
+    "json-server": "^0.12.1",
+    "lodash": "^4.17.4",
     "plop": "^1.9.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
@@ -15,12 +17,15 @@
   "scripts": {
     "build": "react-scripts build",
     "gen": "plop --plopfile ./generators/plopfile.js",
-    "start": "npm run reactStart",
+    "start": "concurrently \"npm run reactStart\" \"npm run fakeAPI\"",
     "reactStart": "react-scripts start",
-    "fakeAPI": "json-server --watch db.json -p 4000",
+    "fakeAPI": "json-server --watch db.json -p 4440",
     "test": "react-scripts test --env=jsdom --no-watchAll --forceExit",
     "version:major": "npm version major",
     "version:minor": "npm version minor",
     "version:patch": "npm version patch"
+  },
+  "devDependencies": {
+    "concurrently": "^3.5.1"
   }
 }
