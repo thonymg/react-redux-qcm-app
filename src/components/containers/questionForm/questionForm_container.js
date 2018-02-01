@@ -3,7 +3,9 @@ import { connect } from 'react-redux';
 import * as formAction from '../../../actions/form_actions' 
 import QuestionForm from '../../ui/questionForm';
 
-const mapStateToProps = (state, ownProps) => ({});
+const mapStateToProps = (state, ownProps) => ({
+  isVisible: state.ui.toggleForm
+});
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {

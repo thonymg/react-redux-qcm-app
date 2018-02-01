@@ -6,7 +6,7 @@ import QuestionList from '../../ui/questionList';
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    questions: state.fetchingData ,
+    questions: state.questions ,
   };
 };
 

@@ -12,8 +12,8 @@ const submitedData = ev => {
   return input;
 };
 
-const QuestionForm = ({ handleSubmit }) => {
-  return (
+const QuestionForm = ({ handleSubmit, isVisible }) => {
+  if (isVisible) {return (
     <div className="columns">
       <div className="column col-6 col-mx-auto">
         <h3>Créer votre question</h3>
@@ -80,7 +80,8 @@ const QuestionForm = ({ handleSubmit }) => {
         </form>
       </div>
     </div>
-  );
+  );}
+  return (<div></div>)
 };
 
 QuestionForm.propTypes = {};

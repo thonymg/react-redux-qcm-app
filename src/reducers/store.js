@@ -4,13 +4,12 @@ import thunk from 'redux-thunk';
 
 import {
   questionsReducer,
-  fetchingDataReducer,
+  // fetchingDataReducer,
 } from './questions/questions_reducer';
 import ui from './ui/ui_reducer';
 
 const reducers = combineReducers({
   questions: questionsReducer,
-  fetchingData: fetchingDataReducer,
   ui,
 });
 

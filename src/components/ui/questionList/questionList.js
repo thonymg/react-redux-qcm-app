@@ -20,12 +20,12 @@ export default class QuestionList extends React.Component {
               {_.map(this.props.questions, question => {
                 return (
                   <Question
-                    key={question.ID}
+                    key={question.id}
                     question={question}
                     onRespondClick={() =>
-                      this.props.onRespondClick(question.ID)
+                      this.props.onRespondClick(question.id)
                     }
-                    onStatClick={() => this.props.onStatClick(question.ID)}
+                    onStatClick={() => this.props.onStatClick(question.id)}
                   />
                 );
               })}

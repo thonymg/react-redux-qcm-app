@@ -1,5 +1,5 @@
 import * as a from '../../actions/actions_types.js';
-const INITIAL_STATE = {toggleStat: '5562', responseField: '5562',};
+const INITIAL_STATE = {toggleStat: '885562', responseField: '885562',};
 
 export const uiReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {

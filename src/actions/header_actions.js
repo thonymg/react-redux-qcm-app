@@ -45,8 +45,6 @@ export const fetchAllQuestionSuccess = data => {
 };
 
 export const fetchAllQuestion = () => {
-  const data = Axios.get(apiUrl);
-
   return dispatch => {
     dispatch(fetchAllQuestionLoading(true));
 

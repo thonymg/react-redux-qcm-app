@@ -7,7 +7,7 @@ import ResponseFields from '../../ui/responseFields';
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    question: _.find(state.questions, {'ID' : state.ui.responseField}),
+    question: _.find(state.questions, {'id' : state.ui.responseField}),
   };
 };
 

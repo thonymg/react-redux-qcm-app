@@ -3,13 +3,12 @@ import Axios from 'axios';
 const apiUrl = 'http://localhost:4440/questions';
 
 const uid = () => Date.now();
-const createQuestionCode = () => {
-  // return code;
-};
+
+export const addQuestion = data => {};
 
 export const createOneQuestion = data => {
   const formatedData = {
-    ID: `${uid()}`,
+    id: `${uid()}`,
     question: data.question,
     responses: [
       {
@@ -35,42 +34,41 @@ export const createOneQuestion = data => {
       },
     ],
   };
-  return {
-    type: a.CREATE_ONE_QUESTION,
-    payload: formatedData,
+  return (dispatch, getState) => {
+    Axios.post(apiUrl, formatedData)
+      .then(res => {
+        console.log(res, 'données postés');
+      })
+      .then(() => {
+        return dispatch({
+          type: a.CREATE_ONE_QUESTION,
+          payload: formatedData,
+        });
+      });
   };
 };
 
 export const pickOneResponse = data => {
   const res = {
-    ID: data.questionID, 
-    responses : [
+    id: data.questionId,
+    responses: [
       {
         picked: +1,
         lastPicked: new Date(),
       },
-    ]
-  }
+    ],
+  };
   return {
     type: a.PICK_ONE_RESPONSE,
     payload: res,
   };
 };
 
-
 // thunks
-export const createQuestion = (question) => {
+export const createQuestion = question => {
   return dispatch => {
-    return Axios.post(apiUrl, question)
-    .then(res => {
-      dispatch(createOneQuestion(res.data))
-    })
-  }
-}
-// export const getLastQuestion = () => {
-//   return { type: a.GET_LAST_QUESTION };
-// };
-
-// export const getBestQuestion = () => {
-//   return { type: a.GET_BEST_QUESTION };
-// };
+    return Axios.post(apiUrl, question).then(res => {
+      dispatch(createOneQuestion(res.data));
+    });
+  };
+};
