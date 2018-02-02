@@ -31,8 +31,8 @@ const INITIAL_STATE = [
 
 const sortByDate = array => {
   return array.sort((a, b) => {
-    let date1 = new Date(a.createdAt);
-    let date2 = new Date(b.createdAt);
+    let date1 = _.parseInt(a.id);
+    let date2 = _.parseInt(b.id);
     return date1 - date2;
   });
 };
@@ -44,7 +44,8 @@ export const questionsReducer = (state = INITIAL_STATE, action) => {
       return [...state, action.payload];
 
     case a.GET_LAST_QUESTION:
-      return sortByDate(state);
+      const sorted = [...sortByDate(state)];
+      return sorted;
 
     case a.GET_BEST_QUESTION:
       return (state = 'GET_BEST_QUESTION');
@@ -56,8 +57,10 @@ export const questionsReducer = (state = INITIAL_STATE, action) => {
 
     case a.FETCH_ALL_QUESTION_ERROR:
       return Object.assign({}, state.hasHerror, action.hasHerror);
+
     case a.FETCH_ALL_QUESTION_LOADING:
       return Object.assign({}, state.isLoading, action.isLoading);
+
     case a.FETCH_ALL_QUESTION_SUCCESS:
       return [...state, ...action.payload];
 

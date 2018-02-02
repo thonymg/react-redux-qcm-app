@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import * as headerAction from '../../../actions/header_actions'
+import * as formAction from '../../../actions/form_actions'
 
 import Header from '../../ui/header';
 
@@ -20,7 +21,8 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     // },
     onLastQuestionClick : () => {
       dispatch(headerAction.getLastQuestion())
-    }
+    }, 
+    hideResponse : ()=> dispatch(formAction.hideResponseField(false))
   };
 };
 

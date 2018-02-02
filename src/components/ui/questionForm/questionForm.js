@@ -98,12 +98,7 @@ const QuestionForm = ({
                 }}>
                 Annuler
               </button>
-              <button
-                className="btn btn-success"
-                type="submit"
-                onClick={() => {
-                  onHideQuestionClick();
-                }}>
+              <button className="btn btn-success" type="submit">
                 Valider
               </button>
             </div>
@@ -115,6 +110,11 @@ const QuestionForm = ({
   return <div />;
 };
 
-QuestionForm.propTypes = {};
+QuestionForm.propTypes = {
+  handleSubmit: PropTypes.func.isRequired,
+  isVisible: PropTypes.bool.isRequired,
+  onShowQuestionClick: PropTypes.func.isRequired,
+  onHideQuestionClick: PropTypes.func.isRequired,
+};
 
 export default QuestionForm;

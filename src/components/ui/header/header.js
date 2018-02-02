@@ -7,6 +7,7 @@ const Header = ({
   onBestQuestionClick,
   onLastQuestionClick,
   questionFormVisibility,
+  hideResponse,
 }) => (
   <div>
     <ul className="tab">
@@ -15,6 +16,7 @@ const Header = ({
           href=""
           onClick={e => {
             e.preventDefault();
+            hideResponse();
             if (questionFormVisibility === false) {
               onShowQuestionClick();
             } else {
@@ -30,6 +32,8 @@ const Header = ({
           onClick={e => {
             e.preventDefault();
             onLastQuestionClick();
+            onHideQuestionClick();
+            hideResponse();
           }}>
           (<i className="icon icon-arrow-up" />) Last
         </a>
@@ -54,6 +58,13 @@ const Header = ({
   </div>
 );
 
-Header.propTypes = {};
+Header.propTypes = {
+  onHideQuestionClick: PropTypes.func.isRequired,
+  onShowQuestionClick: PropTypes.func.isRequired,
+  onBestQuestionClick: PropTypes.func.isRequired,
+  onLastQuestionClick: PropTypes.func.isRequired,
+  questionFormVisibility: PropTypes.bool.isRequired,
+  hideResponse: PropTypes.func.isRequired,
+};
 
 export default Header;

@@ -11,8 +11,13 @@ const submitedData = (ev, questionId) => {
   return input;
 };
 
-const ResponseFields = ({ question, handleSubmit, isVisible, hideResponse }) => {
-  console.log(question, isVisible, 'is visible')
+const ResponseFields = ({
+  question,
+  handleSubmit,
+  isVisible,
+  hideResponse,
+}) => {
+  console.log(question, isVisible, 'is visible');
   if (question && isVisible === true) {
     return (
       <div>
@@ -58,9 +63,15 @@ const ResponseFields = ({ question, handleSubmit, isVisible, hideResponse }) => 
         </div>
       </div>
     );
-  } return (<div></div>)
+  }
+  return <div />;
 };
 
-ResponseFields.propTypes = {};
+ResponseFields.propTypes = {
+  question: PropTypes.object.isRequired,
+  handleSubmit: PropTypes.func.isRequired,
+  isVisible: PropTypes.bool.isRequired,
+  hideResponse: PropTypes.func.isRequired,
+};
 
 export default ResponseFields;
