@@ -16,21 +16,21 @@ export const createOneQuestion = data => {
         isTrue: true,
         picked: 0,
         lastPicked: new Date(),
-        index: 0,
+        index: '0',
       },
       {
         response: data.badResponse1,
         isTrue: false,
         picked: 0,
         lastPicked: new Date(),
-        index: 1,
+        index: '1',
       },
       {
         response: data.badResponse2,
         isTrue: false,
         picked: 0,
         lastPicked: new Date(),
-        index: 2,
+        index: '2',
       },
     ],
   };
@@ -50,25 +50,44 @@ export const createOneQuestion = data => {
 
 export const pickOneResponse = data => {
   const res = {
-    id: data.questionId,
-    responses: [
-      {
-        picked: +1,
-        lastPicked: new Date(),
-      },
-    ],
+    picked: +1,
+    lastPicked: new Date(),
+    index: data.response,
   };
-  return {
-    type: a.PICK_ONE_RESPONSE,
-    payload: res,
+
+  return (dispatch, getState) => {
+    Axios.get(apiUrl, {
+      params: {
+        id: data.questionId,
+      },
+    }).then(obj => {
+      const updated = Object.assign({}, ...obj.data, {
+        index: res.index,
+        picked: res.picked,
+        lastPicked: res.lastPicked,
+      });
+
+      console.log(updated, res, 'donnés formatés');
+
+      Axios.patch(apiUrl + '/' + data.questionId, {data : res})
+        .then(res => {
+          console.log(res, 'response données postés');
+        })
+        .then(() => {
+          return dispatch({
+            type: a.PICK_ONE_RESPONSE,
+            payload: res,
+          });
+        });
+    });
   };
 };
 
 // thunks
-export const createQuestion = question => {
-  return dispatch => {
-    return Axios.post(apiUrl, question).then(res => {
-      dispatch(createOneQuestion(res.data));
-    });
-  };
-};
+// export const createQuestion = question => {
+//   return dispatch => {
+//     return Axios.post(apiUrl, question).then(res => {
+//       dispatch(createOneQuestion(res.data));
+//     });
+//   };
+// };

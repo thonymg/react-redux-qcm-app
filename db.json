@@ -9,21 +9,21 @@
           "isTrue": true,
           "picked": 0,
           "lastPicked": "2018-02-01T15:29:32.810Z",
-          "index": 0
+          "index": "0"
         },
         {
           "response": "Vikings",
           "isTrue": false,
           "picked": 0,
           "lastPicked": "2018-02-01T15:29:32.810Z",
-          "index": 1
+          "index": "1"
         },
         {
           "response": "Game Of Throne",
           "isTrue": false,
           "picked": 0,
           "lastPicked": "2018-02-01T15:29:32.810Z",
-          "index": 2
+          "index": "2"
         }
       ]
     }
