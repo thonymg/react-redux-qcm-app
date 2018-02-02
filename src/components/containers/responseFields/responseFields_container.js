@@ -7,13 +7,15 @@ import ResponseFields from '../../ui/responseFields';
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    question: _.find(state.questions, {'id' : state.ui.responseField}),
+    question: _.find(state.questions, {'id' : state.ui.responseField.id}),
+    isVisible: state.ui.responseField.isVisible,
   };
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
   handleSubmit: (data) => {
-    dispatch(formAction.pickOneResponse(data))
+    dispatch(formAction.pickOneResponse(data)),
+    dispatch(formAction.hideResponseField(false))
   }
 });
 

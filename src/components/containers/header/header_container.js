@@ -3,12 +3,17 @@ import * as headerAction from '../../../actions/header_actions'
 
 import Header from '../../ui/header';
 
-const mapStateToProps = () => ({});
+const mapStateToProps = (state, ownProps)=> ({
+  questionFormVisibility : state.ui.toggleForm.isVisible
+});
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     onShowQuestionClick : () => {
-      dispatch(headerAction.showQuestionForm())
+      dispatch(headerAction.showQuestionForm(true))
+    },
+    onHideQuestionClick : () => {
+      dispatch(headerAction.hideQuestionForm(false))
     },
     onBestQuestionClick : () => {
       dispatch(headerAction.getBestQuestion() )

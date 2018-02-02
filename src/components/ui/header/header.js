@@ -1,7 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Header = ({onShowQuestionClick, onBestQuestionClick, onLastQuestionClick}) => (
+const Header = ({
+  onHideQuestionClick,
+  onShowQuestionClick,
+  onBestQuestionClick,
+  onLastQuestionClick,
+  questionFormVisibility,
+}) => (
   <div>
     <ul className="tab">
       <li className="tab-item active">
@@ -9,13 +15,17 @@ const Header = ({onShowQuestionClick, onBestQuestionClick, onLastQuestionClick})
           href=""
           onClick={e => {
             e.preventDefault();
-            onShowQuestionClick();
+            if (questionFormVisibility === false) {
+              onShowQuestionClick();
+            } else {
+              onHideQuestionClick();
+            }
           }}>
           (<i className="icon icon-plus" />) Add
         </a>
       </li>
       <li className="tab-item">
-      <a
+        <a
           href=""
           onClick={e => {
             e.preventDefault();
@@ -25,7 +35,7 @@ const Header = ({onShowQuestionClick, onBestQuestionClick, onLastQuestionClick})
         </a>
       </li>
       <li className="tab-item">
-      <a
+        <a
           href=""
           onClick={e => {
             e.preventDefault();

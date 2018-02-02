@@ -5,11 +5,10 @@ import _ from 'lodash';
 import Question from '../question';
 import question from '../question/question';
 
-
 export default class QuestionList extends React.Component {
   componentDidMount() {
     this.props.fetchData();
-    }
+  }
   render() {
     return (
       <div>
@@ -22,9 +21,11 @@ export default class QuestionList extends React.Component {
                   <Question
                     key={question.id}
                     question={question}
-                    onRespondClick={() =>
-                      this.props.onRespondClick(question.id)
-                    }
+                    onRespondClick={() => {
+                      this.props.onRespondClick(question.id);
+                      console.log(question.id , 'selection')
+                      // this.props.onShowResponseField();
+                    }}
                     onStatClick={() => this.props.onStatClick(question.id)}
                   />
                 );

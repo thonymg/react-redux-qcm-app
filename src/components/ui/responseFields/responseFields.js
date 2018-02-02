@@ -11,8 +11,9 @@ const submitedData = (ev, questionId) => {
   return input;
 };
 
-const ResponseFields = ({ question, handleSubmit }) => {
-  if (question) {
+const ResponseFields = ({ question, handleSubmit, isVisible }) => {
+  console.log(question, isVisible, 'is visible')
+  if (question && isVisible === true) {
     return (
       <div>
         <div className="columns">

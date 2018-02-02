@@ -13,75 +13,77 @@ const submitedData = ev => {
 };
 
 const QuestionForm = ({ handleSubmit, isVisible }) => {
-  if (isVisible) {return (
-    <div className="columns">
-      <div className="column col-6 col-mx-auto">
-        <h3>Créer votre question</h3>
-        <form
-          onSubmit={e => {
-            e.preventDefault();
-            handleSubmit(submitedData(e));
-          }}>
-          <div className="form-group">
-            <label className="form-label">Quelle est votre question ? </label>
-            <textarea
-              className="form-input"
-              rows={5}
-              cols={5}
-              placeholder="Quelle est le nom de la plus grande série de tout les temps ?"
-              name="question"
-            />
-          </div>
+  if (isVisible) {
+    return (
+      <div className="columns">
+        <div className="column col-6 col-mx-auto">
+          <h3>Créer votre question</h3>
+          <form
+            onSubmit={e => {
+              e.preventDefault();
+              handleSubmit(submitedData(e));
+            }}>
+            <div className="form-group">
+              <label className="form-label">Quelle est votre question ? </label>
+              <textarea
+                className="form-input"
+                rows={5}
+                cols={5}
+                placeholder="Quelle est le nom de la plus grande série de tout les temps ?"
+                name="question"
+              />
+            </div>
 
-          <div className="form-group">
-            <label className="form-label">la bonne réponse d'abord</label>
-            <div className="has-icon-left">
-              <input
-                type="text"
-                className="form-input is-success"
-                placeholder="Breaking Bad"
-                name="goodResponse"
-              />
-              <i className="form-icon icon icon-check" />
+            <div className="form-group">
+              <label className="form-label">la bonne réponse d'abord</label>
+              <div className="has-icon-left">
+                <input
+                  type="text"
+                  className="form-input is-success"
+                  placeholder="Breaking Bad"
+                  name="goodResponse"
+                />
+                <i className="form-icon icon icon-check" />
+              </div>
             </div>
-          </div>
-          <div className="form-group">
-            <label className="form-label">une mauvaise réponse</label>
-            <div className="has-icon-left">
-              <input
-                type="text"
-                className="form-input"
-                placeholder="Viking"
-                name="badResponse1"
-              />
-              <i className="form-icon icon icon-cross" />
+            <div className="form-group">
+              <label className="form-label">une mauvaise réponse</label>
+              <div className="has-icon-left">
+                <input
+                  type="text"
+                  className="form-input"
+                  placeholder="Viking"
+                  name="badResponse1"
+                />
+                <i className="form-icon icon icon-cross" />
+              </div>
             </div>
-          </div>
-          <div className="form-group">
-            <label className="form-label">une autre mauvaise réponse</label>
-            <div className="has-icon-left">
-              <input
-                type="text"
-                className="form-input"
-                placeholder="Game of Throne"
-                name="badResponse2"
-              />
-              <i className="form-icon icon icon-cross" />
+            <div className="form-group">
+              <label className="form-label">une autre mauvaise réponse</label>
+              <div className="has-icon-left">
+                <input
+                  type="text"
+                  className="form-input"
+                  placeholder="Game of Throne"
+                  name="badResponse2"
+                />
+                <i className="form-icon icon icon-cross" />
+              </div>
             </div>
-          </div>
-          <div className="text-right">
-            <button className="btn btn-link" type="button">
-              Annuler
-            </button>
-            <button className="btn btn-success" type="submit">
-              Valider
-            </button>
-          </div>
-        </form>
+            <div className="text-right">
+              <button className="btn btn-link" type="button">
+                Annuler
+              </button>
+              <button className="btn btn-success" type="submit">
+                Valider
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
-    </div>
-  );}
-  return (<div></div>)
+    );
+  }
+  return <div />;
 };
 
 QuestionForm.propTypes = {};

@@ -5,18 +5,17 @@
       "question": "Quelle est la plus grande série de tous les temps ??",
       "responses": [
         {
+          "index": 0,
+          "piked": 0,
+          "lastPicked": "2018-02-02T11:30:26.644Z",
           "response": "Breaking Bad",
-          "isTrue": true,
-          "picked": 0,
-          "lastPicked": "2018-02-01T15:29:32.810Z",
-          "index": "0"
+          "isTrue": true
         },
         {
+          "index": 1,
+          "lastPicked": "2018-02-02T11:30:46.619Z",
           "response": "Vikings",
-          "isTrue": false,
-          "picked": 0,
-          "lastPicked": "2018-02-01T15:29:32.810Z",
-          "index": "1"
+          "isTrue": false
         },
         {
           "response": "Game Of Throne",

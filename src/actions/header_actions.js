@@ -8,10 +8,17 @@ export const getAllQuestion = () => {
   };
 };
 
-export const showQuestionForm = () => {
+export const showQuestionForm = (bool = false) => {
   return {
     type: a.TOGGLE_QUESTION_FORM,
-    payload: true,
+    isVisible: bool,
+  };
+};
+
+export const hideQuestionForm = (bool = false) => {
+  return {
+    type: a.TOGGLE_QUESTION_FORM,
+    isVisible: bool,
   };
 };
 

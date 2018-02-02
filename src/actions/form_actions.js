@@ -12,6 +12,7 @@ export const createOneQuestion = data => {
   const formatedData = {
     id: `${uid()}`,
     question: data.question,
+    createdAt: new Date(),
     responses: [
       {
         response: data.goodResponse,
@@ -75,7 +76,7 @@ export const pickOneResponse = data => {
           upt.responses[res.index],
           (upt.responses[res.index] = {
             index: res.index,
-            piked: (upt.responses[res.index].picked += 1) || 1,              
+            piked: upt.responses[res.index].picked,              
             lastPicked: res.lastPicked,
             response: upt.responses[res.index].response,
             isTrue: upt.responses[res.index].isTrue,
@@ -85,9 +86,6 @@ export const pickOneResponse = data => {
       })
       .then(upt => {
         Axios.put(apiUrl + '/' + data.questionId, upt)
-          .then(res => {
-            console.log(res.data.responses, 'response données postés');
-          })
           .then(() => {
             return dispatch({
               type: a.PICK_ONE_RESPONSE,
@@ -95,5 +93,18 @@ export const pickOneResponse = data => {
             });
           });
       });
+  };
+};
+
+export const hideResponseField = (bool = false) => {
+  return {
+    type: a.TOGGLE_RESPONSE_FIELD,
+    isVisible: bool,
+  };
+};
+export const showResponseField = (bool = true) => {
+  return {
+    type: a.TOGGLE_RESPONSE_FIELD,
+    isVisible: bool,
   };
 };
