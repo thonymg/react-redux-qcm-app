@@ -1,5 +1,7 @@
 import * as a from './actions_types.js';
 import Axios from 'axios';
+import _ from 'lodash';
+
 const apiUrl = 'http://localhost:4440/questions';
 
 const uid = () => Date.now();
@@ -50,9 +52,9 @@ export const createOneQuestion = data => {
 
 export const pickOneResponse = data => {
   const res = {
-    picked: +1,
+    picked: 1,
     lastPicked: new Date(),
-    index: data.response,
+    index: _.parseInt(data.response),
   };
 
   return (dispatch, getState) => {
@@ -60,34 +62,38 @@ export const pickOneResponse = data => {
       params: {
         id: data.questionId,
       },
-    }).then(obj => {
-      const updated = Object.assign({}, ...obj.data, {
-        index: res.index,
-        picked: res.picked,
-        lastPicked: res.lastPicked,
-      });
+    })
+      .then(obj => {
+        const upt = Object.assign({}, ...obj.data);
 
-      console.log(updated, res, 'donnés formatés');
+        return  upt;
 
-      Axios.patch(apiUrl + '/' + data.questionId, {data : res})
-        .then(res => {
-          console.log(res, 'response données postés');
-        })
-        .then(() => {
-          return dispatch({
-            type: a.PICK_ONE_RESPONSE,
-            payload: res,
+      })
+      .then(( upt) => {
+        const updatedResponse = Object.assign(
+          {},
+          upt.responses[res.index],
+          (upt.responses[res.index] = {
+            index: res.index,
+            piked: (upt.responses[res.index].picked += 1) || 1,              
+            lastPicked: res.lastPicked,
+            response: upt.responses[res.index].response,
+            isTrue: upt.responses[res.index].isTrue,
+          })
+        );
+        return upt;
+      })
+      .then(upt => {
+        Axios.put(apiUrl + '/' + data.questionId, upt)
+          .then(res => {
+            console.log(res.data.responses, 'response données postés');
+          })
+          .then(() => {
+            return dispatch({
+              type: a.PICK_ONE_RESPONSE,
+              payload: res,
+            });
           });
-        });
-    });
+      });
   };
 };
-
-// thunks
-// export const createQuestion = question => {
-//   return dispatch => {
-//     return Axios.post(apiUrl, question).then(res => {
-//       dispatch(createOneQuestion(res.data));
-//     });
-//   };
-// };
