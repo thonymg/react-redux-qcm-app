@@ -36,11 +36,3 @@ export default class QuestionList extends React.Component {
     );
   }
 }
-
-// QuestionList.prototype = {
-//   questions: PropTypes.array.isRequired, 
-//   onRespondClick: PropTypes.func.isRequired,
-//   onHideQuestionClick: PropTypes.func.isRequired,
-//   onStatClick: PropTypes.func.isRequired,
-//   fetchData: PropTypes.func.isRequired,
-// }

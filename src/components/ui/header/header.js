@@ -61,7 +61,7 @@ const Header = ({
 Header.propTypes = {
   onHideQuestionClick: PropTypes.func.isRequired,
   onShowQuestionClick: PropTypes.func.isRequired,
-  onBestQuestionClick: PropTypes.func.isRequired,
+  onBestQuestionClick: PropTypes.func,
   onLastQuestionClick: PropTypes.func.isRequired,
   questionFormVisibility: PropTypes.bool.isRequired,
   hideResponse: PropTypes.func.isRequired,

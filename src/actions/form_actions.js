@@ -75,7 +75,6 @@ export const pickOneResponse = data => {
         const upt = Object.assign({}, ...obj.data);
 
         return  upt;
-
       })
       .then(( upt) => {
         const updatedResponse = Object.assign(

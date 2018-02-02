@@ -8,6 +8,7 @@ const submitedData = (ev, questionId) => {
     questionId,
   };
 
+  if (!ev.target.elements.response.value) return null;
   return input;
 };
 
@@ -17,7 +18,6 @@ const ResponseFields = ({
   isVisible,
   hideResponse,
 }) => {
-  console.log(question, isVisible, 'is visible');
   if (question && isVisible === true) {
     return (
       <div>
@@ -30,7 +30,12 @@ const ResponseFields = ({
               <form
                 onSubmit={e => {
                   e.preventDefault();
-                  handleSubmit(submitedData(e, question.id));
+                  if (!submitedData(e, question.id)) {
+                    return false;
+                  } else {
+                    console.log(e, 'response Fied');
+                    handleSubmit(submitedData(e, question.id));
+                  }
                 }}>
                 <div className="form-group">
                   <ul>
@@ -68,7 +73,7 @@ const ResponseFields = ({
 };
 
 ResponseFields.propTypes = {
-  question: PropTypes.object.isRequired,
+  question: PropTypes.object,
   handleSubmit: PropTypes.func.isRequired,
   isVisible: PropTypes.bool.isRequired,
   hideResponse: PropTypes.func.isRequired,

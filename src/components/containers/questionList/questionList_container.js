@@ -2,7 +2,6 @@ import { connect } from 'react-redux';
 
 import * as responseActions from '../../../actions/response_actions';
 import { fetchAllQuestion, hideQuestionForm } from '../../../actions/header_actions';
-import { showResponseField } from '../../../actions/form_actions';
 import QuestionList from '../../ui/questionList';
 
 const mapStateToProps = (state, ownProps) => {

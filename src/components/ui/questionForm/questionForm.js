@@ -10,6 +10,18 @@ const submitedData = ev => {
     badResponseD: ev.target.elements.badResponseD.value,
   };
 
+  if (!ev.target.elements.goodResponse.value) {
+    return null;
+  }
+  if (!ev.target.elements.badResponse1.value) {
+    return null;
+  }
+  if (!ev.target.elements.badResponse2.value) {
+    return null;
+  }
+  if (!ev.target.elements.badResponse3.value) {
+    return null;
+  }
   return input;
 };
 
@@ -27,8 +39,12 @@ const QuestionForm = ({
           <form
             onSubmit={e => {
               e.preventDefault();
-              handleSubmit(submitedData(e));
               onHideQuestionClick();
+              if (!submitedData(e)) {
+                return false;
+              } else {
+                handleSubmit(submitedData(e));
+              }
             }}>
             <div className="form-group">
               <label className="form-label">Quelle est votre question ? </label>
