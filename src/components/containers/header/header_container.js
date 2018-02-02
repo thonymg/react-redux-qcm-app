@@ -15,9 +15,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     onHideQuestionClick : () => {
       dispatch(headerAction.hideQuestionForm(false))
     },
-    onBestQuestionClick : () => {
-      dispatch(headerAction.getBestQuestion() )
-    },
+    // onBestQuestionClick : () => {
+    //   dispatch(headerAction.getBestQuestion() )
+    // },
     onLastQuestionClick : () => {
       dispatch(headerAction.getLastQuestion())
     }

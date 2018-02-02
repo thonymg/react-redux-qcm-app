@@ -16,7 +16,8 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   handleSubmit: (data) => {
     dispatch(formAction.pickOneResponse(data)),
     dispatch(formAction.hideResponseField(false))
-  }
+  }, 
+  hideResponse : ()=> dispatch(formAction.hideResponseField(false))
 });
 
 const ResponseFieldContainer = connect(mapStateToProps, mapDispatchToProps)(

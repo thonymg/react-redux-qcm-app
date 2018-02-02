@@ -11,7 +11,7 @@ const submitedData = (ev, questionId) => {
   return input;
 };
 
-const ResponseFields = ({ question, handleSubmit, isVisible }) => {
+const ResponseFields = ({ question, handleSubmit, isVisible, hideResponse }) => {
   console.log(question, isVisible, 'is visible')
   if (question && isVisible === true) {
     return (
@@ -45,7 +45,7 @@ const ResponseFields = ({ question, handleSubmit, isVisible }) => {
                 <div className="text-right">
                   <button
                     className="btn btn-link"
-                    onClick={() => console.log('selected')}>
+                    onClick={() => hideResponse()}>
                     Annuler
                   </button>
                   <button className="btn btn-success" type="submit">

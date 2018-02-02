@@ -34,7 +34,7 @@ const Header = ({
           (<i className="icon icon-arrow-up" />) Last
         </a>
       </li>
-      <li className="tab-item">
+      {/* <li className="tab-item">
         <a
           href=""
           onClick={e => {
@@ -43,12 +43,13 @@ const Header = ({
           }}>
           <i className="icon icon-emoji" /> Best
         </a>
-      </li>
+      </li> 
       <li className="tab-item tab-action">
         <div className="input-group input-inline">
           <input className="form-input" type="text" placeholder="search" />
         </div>
       </li>
+      */}
     </ul>
   </div>
 );

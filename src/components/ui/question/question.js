@@ -1,14 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Question = ({ question, onRespondClick, onStatClick }) => {
+const Question = ({ question, onRespondClick, onStatClick, onTitleClick }) => {
 
     return (
       <li>
         <div>
           <div className="tile">
             <div className="tile-content">
-              <a className="tile-title">Question #{question.id}</a>
+              <a className="tile-title" onClick={onTitleClick}>Question #{question.id}</a>
               <p className="tile-subtitle text-gray">{question.question}</p>
             </div>
             <div className="tile-action">

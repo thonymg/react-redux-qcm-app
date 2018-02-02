@@ -35,6 +35,13 @@ export const createOneQuestion = data => {
         lastPicked: new Date(),
         index: '2',
       },
+      {
+        response: data.badResponseD,
+        isTrue: false,
+        picked: 0,
+        lastPicked: new Date(),
+        index: '2',
+      },
     ],
   };
   return (dispatch, getState) => {

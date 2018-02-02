@@ -12,7 +12,6 @@ export default class QuestionList extends React.Component {
   render() {
     return (
       <div>
-        <button onClick={e => this.props.fetchData()}>Fetch</button>
         <div className="container">
           <div className="column col-12">
             <ul>
@@ -21,10 +20,10 @@ export default class QuestionList extends React.Component {
                   <Question
                     key={question.id}
                     question={question}
+                    onTitleClick={() => this.props.onRespondClick(question.id)}
                     onRespondClick={() => {
                       this.props.onRespondClick(question.id);
-                      console.log(question.id , 'selection')
-                      // this.props.onShowResponseField();
+                      this.props.onHideQuestionClick();
                     }}
                     onStatClick={() => this.props.onStatClick(question.id)}
                   />

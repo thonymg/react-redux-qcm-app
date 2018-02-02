@@ -7,12 +7,18 @@ const submitedData = ev => {
     goodResponse: ev.target.elements.goodResponse.value,
     badResponse1: ev.target.elements.badResponse1.value,
     badResponse2: ev.target.elements.badResponse2.value,
+    badResponseD: ev.target.elements.badResponseD.value,
   };
 
   return input;
 };
 
-const QuestionForm = ({ handleSubmit, isVisible }) => {
+const QuestionForm = ({
+  handleSubmit,
+  isVisible,
+  onShowQuestionClick,
+  onHideQuestionClick,
+}) => {
   if (isVisible) {
     return (
       <div className="columns">
@@ -22,6 +28,7 @@ const QuestionForm = ({ handleSubmit, isVisible }) => {
             onSubmit={e => {
               e.preventDefault();
               handleSubmit(submitedData(e));
+              onHideQuestionClick();
             }}>
             <div className="form-group">
               <label className="form-label">Quelle est votre question ? </label>
@@ -70,11 +77,33 @@ const QuestionForm = ({ handleSubmit, isVisible }) => {
                 <i className="form-icon icon icon-cross" />
               </div>
             </div>
+            <div className="form-group">
+              <label className="form-label">la réponse D</label>
+              <div className="has-icon-left">
+                <input
+                  type="text"
+                  className="form-input"
+                  placeholder="la réponse D"
+                  name="badResponseD"
+                />
+                <i className="form-icon icon icon-cross" />
+              </div>
+            </div>
             <div className="text-right">
-              <button className="btn btn-link" type="button">
+              <button
+                className="btn btn-link"
+                type="button"
+                onClick={() => {
+                  onHideQuestionClick();
+                }}>
                 Annuler
               </button>
-              <button className="btn btn-success" type="submit">
+              <button
+                className="btn btn-success"
+                type="submit"
+                onClick={() => {
+                  onHideQuestionClick();
+                }}>
                 Valider
               </button>
             </div>
